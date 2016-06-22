@@ -1,0 +1,45 @@
+%h1.center Trello React Boards
+%hr
+
+= react_component('Boards', {boards: @boards})
+
+
+
+
+
+
+
+
+
+/ - if @boards.any?
+/ 	- @boards.each do |board|
+/ 		= link_to board.name, board_path(board)
+/ - else
+/ 	%h3 No boards, please create one!
+
+/ = link_to 'New Board', new_board_path
+
+/ / Can also just write ".container" here
+/ %div.container.black.white-text
+/ 	Some text
+
+/ 	%ul
+/ 		- [1,2,3,4,5].each do |number|
+/ 			%li
+/ 				= number
+
+/ #content.black.white-text.center
+/ 	%h3 Some content
+
+/ 	%img.circle{src: 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg'}
+
+/ 	%a#some-id.app-link{href: '/boards', data: {confirm: 'Really go to boards?'}}
+
+/ 	= link_to 'Boards', boards_path, data: {confirm: 'Really go to boards?'}
+
+/ 	= form_for Board.new do |f|
+/ 		= f.label :name
+/ 		= f.text_field :name
+
+/ 		= f.label :description
+/ 		= f.text_field :description
