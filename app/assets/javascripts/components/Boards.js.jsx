@@ -55,19 +55,19 @@ class Boards extends React.Component {
 	}
 
 	render() {
-		if(this.state.show) {
-			// render the show html
-			return(
-				<div>
-					<h3>{this.state.board.name}</h3>
-					<i>{this.state.board.description}</i>
-					<br />
-					<button className='btn' onClick={this.boardBack.bind(this)}>Back</button>
-					<hr />
-					<Lists boardId={this.state.board.id} />
-				</div>
-			)
-		} else {
+		// if(this.state.show) {
+		// 	// render the show html
+		// 	return(
+		// 		<div>
+		// 			<h3>{this.state.board.name}</h3>
+		// 			<i>{this.state.board.description}</i>
+		// 			<br />
+		// 			<button className='btn' onClick={this.boardBack.bind(this)}>Back</button>
+		// 			<hr />
+		// 			<Lists boardId={this.state.board.id} />
+		// 		</div>
+		// 	)
+		// } else { DONT NEED THIS ANY MORE
 		let boards = this.state.boards.map( board => {
 			return(<Board key={`board-${board.id}`} {...board} 
 										deleteBoard={this.deleteBoard} 
@@ -82,6 +82,6 @@ class Boards extends React.Component {
 					</div>
 				</div>
 			)
-		}
+		// }
 	}
 }

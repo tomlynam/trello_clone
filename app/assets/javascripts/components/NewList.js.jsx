@@ -20,13 +20,18 @@ class NewList extends React.Component {
     })
   }
 
+  boardBack() {
+		window.location.href = `/`;
+	}
+
   render() {
     return(
-      <div className="col s12 m10 offset-m1">
+      <div className="col s12 m12">
         <h4>Add a list</h4>
         <form onSubmit={this.addList}>
           <input placeholder="Name" ref="name" required={true} />
           <button className="btn">Add</button>
+         	<button className='btn red' onClick={this.boardBack.bind(this)}>Back</button>
         </form>
       </div>
     )

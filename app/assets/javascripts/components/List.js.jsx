@@ -42,16 +42,16 @@ class List extends React.Component {
 	  });
  
 	  return(
-	    <div className="col s12 m3">
-	      <form onSubmit={this.addCard}>
-	        <input placeholder="name" ref="name" />
-	        <input placeholder="description" ref="description" />
-	        <button className="btn" type="submit">Add Card</button>
-				</form>
+	    <div className="col s12 m6">
 				<h5 className="center">{this.props.name}</h5>
 				<ul className="collection">
 					{ cards }
 	    	</ul>
+	    	<form onSubmit={this.addCard}>
+	        <input placeholder="name" ref="name" />
+	        <input placeholder="description" ref="description" />
+	        <button className="btn" type="submit">Add Card</button>
+				</form>
 	  	</div>
 	  )
 	}

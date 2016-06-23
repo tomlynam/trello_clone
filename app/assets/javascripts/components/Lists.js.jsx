@@ -44,7 +44,6 @@ class Lists extends React.Component {
 	}
 
 	render() {
-		debugger
   	let lists = this.state.lists.map( list => {
     	return(<List key={`list-${list.id}`} {...list} />);
   	});
