@@ -15,8 +15,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    card = list.Cards.find(params[:id])
-    card.destroy
+    list.cards.find(params[:id]).destroy
     render json: {alert: 'Card deleted'}
   end
 

@@ -35,6 +35,7 @@ class List extends React.Component {
 		$.ajax({
 			url: `/cards/${id}`,
 			type: 'DELETE',
+			data: { list_id: this.props.id },
 			dataType: 'JSON'
 		}).done( data => {
 			let cards = this.state.cards;
@@ -55,7 +56,7 @@ class List extends React.Component {
 			  	<div>{card.name}   
 			    	<div className="secondary-content">{card.description}</div>
 			  	</div>
-			  	<button className='btn-floating red white-text' onClick={() => this.deleteCard(this.props.id)}>X</button>
+			  	<button className='btn-floating red white-text' onClick={() => this.deleteCard(card.id)}>X</button>
 				</li>
 			);
 	  });
