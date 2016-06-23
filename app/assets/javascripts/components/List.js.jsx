@@ -3,6 +3,7 @@ class List extends React.Component {
 		super(props);
 		this.state = { cards: [] };
     this.addCard = this.addCard.bind(this);
+    this.deleteCard = this.deleteCard.bind(this);
   }
 
 	componentWillMount() {
@@ -30,19 +31,37 @@ class List extends React.Component {
 		});
 	}
 
+	deleteCard(id) {
+		$.ajax({
+			url: `/cards/${id}`,
+			type: 'DELETE',
+			dataType: 'JSON'
+		}).done( data => {
+			let cards = this.state.cards;
+			let index = cards.findIndex( c => c.id === id);
+			this.setState({
+				cards: [ ...cards.slice(0, index), ...cards.slice(index + 1, cards.length) ]
+			})
+		}).fail( data => {
+			// TODO: handle this better
+			alert('card not deleted');
+		})
+	}
+
 	render() {
 		let cards = this.state.cards.map( card => {
 			return(
 				<li key={`card-${card.id}`} className="collection-item">
-			  	<div>{card.name}
+			  	<div>{card.name}   
 			    	<div className="secondary-content">{card.description}</div>
 			  	</div>
+			  	<button className='btn-floating red white-text' onClick={() => this.deleteCard(this.props.id)}>X</button>
 				</li>
 			);
 	  });
  
 	  return(
-	    <div className="col s12 m6">
+	    <div className="col s12 m4">
 				<h5 className="center">{this.props.name}</h5>
 				<ul className="collection">
 					{ cards }
